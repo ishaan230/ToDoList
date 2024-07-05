@@ -2,11 +2,11 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const datee = require(__dirname+'/date.js')
 const mongoose = require('mongoose')
+require('dotenv').config();
 
 const app = express()
 
-
-mongoose.connect('mongodb://localhost:27017/todoListDB')
+mongoose.connect(process.env.API_URL)
 
 //schema
 const items = {
