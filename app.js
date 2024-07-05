@@ -16,9 +16,13 @@ const items = {
 //model
 const Item = mongoose.model('Item',items)
 
-app.set('view engine','ejs')
+
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.static("public"))
+
+
+app.set("views", __dirname + "/views");
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "public"));
 
 app.get("/",function(req,res){
     let day = datee()
