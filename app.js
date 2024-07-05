@@ -16,13 +16,9 @@ const items = {
 //model
 const Item = mongoose.model('Item',items)
 
-
+app.set('view engine','ejs')
 app.use(bodyParser.urlencoded({extended: true}))
-
-
-app.set("views", __dirname + "/views");
-app.set("view engine", "ejs");
-app.use(express.static(__dirname + "public"));
+app.use(express.static("public"))
 
 app.get("/",function(req,res){
     let day = datee()
@@ -64,6 +60,6 @@ app.get("/about",function(req,res){
     res.render("about")
 })
 
-app.listen(process.env.PORT,function(){
+app.listen(3000,function(){
     console.log('Server Started!')
 })
